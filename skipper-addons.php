@@ -35,7 +35,7 @@ require 'includes/wp-add-custom-css/wordpress-add-custom-css.php';
 //Second solution : two or more files.
 add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
 function load_admin_styles() {
-  wp_enqueue_style( 'skipper_admin', '/app/plugins/skipper-addons/includes/admin.css', , false, '1.0.0' );
+  wp_enqueue_style( 'skipper_admin', '/app/plugins/skipper-addons/includes/admin.css', '', false, '1.0.0' );
   //wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
 }
 
