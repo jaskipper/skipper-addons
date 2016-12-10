@@ -13,9 +13,9 @@ License:      MIT License
 // register jquery and style on initialization
 add_action('init', 'register_script');
 function register_script() {
-    wp_register_script( 'skipperjs', plugins_url('/includes/skipper.js', __FILE__), array('jquery') );
-    wp_register_style( 'skippercss', plugins_url('/includes/skipper.css', __FILE__), false, '1.0.0', 'all');
-    wp_register_style( 'hovercss', plugins_url('/includes/hover.css', __FILE__), false, '1.0.0', 'all');
+    wp_register_script( 'skipperjs', plugins_url(), 'includes/skipper.js', array('jquery') );
+    wp_register_style( 'skippercss', plugins_url(), 'includes/skipper.css', false, '1.0.0', 'all');
+    wp_register_style( 'hovercss', plugins_url(), 'includes/hover.css', false, '1.0.0', 'all');
 }
 
 // use the registered jquery and style above
@@ -32,9 +32,11 @@ require 'includes/wp-add-custom-css/wordpress-add-custom-css.php';
 //require 'social-icons/social-icons.php';
 
 // Update CSS within in Admin
-function admin_style() {
-  wp_enqueue_style('admin-styles', 'includes/admin.css');
-}
-add_action('admin_enqueue_scripts', 'admin_style');
+//Second solution : two or more files.
+add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+function load_admin_styles() {
+  wp_enqueue_style( 'skipper_admin', plugins_url(), 'includes/admin.css', false, '1.0.0' );
+  //wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
+}  
 
 ?>
