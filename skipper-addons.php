@@ -27,8 +27,6 @@ function enqueue_style(){
    wp_enqueue_style( 'hovercss' );
 }
 
-require 'includes/wp-add-custom-css/wordpress-add-custom-css.php';
-
 //require 'social-icons/social-icons.php';
 
 // Update CSS within in Admin
