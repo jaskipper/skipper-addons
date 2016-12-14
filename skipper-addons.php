@@ -10,21 +10,12 @@ Author URI:   https://skipperinnovations.com
 License:      MIT License
 */
 
-// register jquery and style on initialization
-add_action('init', 'register_script');
-function register_script() {
-    wp_register_script( 'skipperjs', plugins_url('includes/skipper.js'), __FILE__, array('jquery') );
-    wp_register_style( 'skippercss', plugins_url('includes/skipper.css'), __FILE__, false, '1.0.0', 'all');
-    wp_register_style( 'hovercss', plugins_url('includes/hover.css'), __FILE__, false, '1.0.0', 'all');
-}
-
 // use the registered jquery and style above
-add_action('wp_enqueue_scripts', 'enqueue_style', 12);
-
+add_action('wp_enqueue_scripts', 'enqueue_style' );
 function enqueue_style(){
-   wp_enqueue_script('skipperjs');
-   wp_enqueue_style( 'skippercss' );
-   wp_enqueue_style( 'hovercss' );
+   wp_enqueue_script('skipperjs', plugins_url('skipper-addons/includes/skipper.js', __FILES__) );
+   wp_enqueue_style( 'skippercss', plugins_url('skipper-addons/includes/skipper.css', __FILES__) );
+   wp_enqueue_style( 'hovercss', plugins_url('skipper-addons/includes/hover.css', __FILES__) );
 }
 
 //require 'social-icons/social-icons.php';
